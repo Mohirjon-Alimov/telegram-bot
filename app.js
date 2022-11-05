@@ -139,14 +139,6 @@ bot.on("callback_query", (msg) => {
     });
   }
 });
-// bot.on('message', msg => {
-//   // console.log(msg);
-//   bot.sendMessage(
-//     "-1001859543798",
-//     `${msg.contact.phone_number},\n${msg.text},\n${msg.from.first_name}\n@${msg.from.username}\n${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}   ${date.getHours()}:${date.getMinutes()}`
-//   );
-// })
-
 bot.on("contact", (msg) => {
   // console.log(msg);
   bot.sendMessage(
@@ -163,5 +155,5 @@ bot.on("contact", (msg) => {
       resize_keyboard: true,
     },
   });
-  // return;
+  return;
 });
