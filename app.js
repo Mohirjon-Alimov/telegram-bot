@@ -33,7 +33,6 @@ bot.onText(/\/start/, (msg) => {
         ],
       ],
 
-      // keyboard: [["👨🏻‍💻About me", "💼Some projects"]],
       resize_keyboard: true,
     },
   });
