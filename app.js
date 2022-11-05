@@ -81,9 +81,7 @@ bot.on("message", (msg) => {
         ],
       },
     });
-  }
-
-  if (msg.text == "👨🏻‍💻About me") {
+  } else if (msg.text == "👨🏻‍💻About me") {
     bot.sendPhoto(chatId, "./files/myphoto.jpg", {
       caption:
         "Hi I'm Mohir\nWelcome to my bot \nI'm Front-end Back-end developer",
@@ -98,22 +96,29 @@ bot.on("message", (msg) => {
         ],
       },
     });
-  }
-  if (msg.text == "💼GitHub") {
+  } else if (msg.text == "💼GitHub") {
     bot.sendPhoto(chatId, "./files/github.webp", {
       caption:
         'GitHub page: <span class="tg-spoiler">https://github.com/Mohirjon-Alimov</span>',
       parse_mode: "HTML",
     });
-  }
-
-  if (msg.text == "🔙Back") {
+  } else if (msg.text == "🔙Back") {
     bot.sendMessage(msg.chat.id, "Ok", {
       reply_markup: {
         keyboard: [["👨🏻‍💻About me", "💼Some projects"]],
         resize_keyboard: true,
       },
     });
+  } else if (msg.text) {
+    bot.sendMessage(
+      "-1001859543798",
+      `${msg.text},\n${msg.from.first_name}\n@${
+        msg.from.username
+      }\n${date.getDate()}.${
+        date.getMonth() + 1
+      }.${date.getFullYear()}   ${date.getHours()}:${date.getMinutes()}`
+    );
+    // console.log(msg);
   }
 });
 bot.on("callback_query", (msg) => {
@@ -134,17 +139,29 @@ bot.on("callback_query", (msg) => {
     });
   }
 });
+// bot.on('message', msg => {
+//   // console.log(msg);
+//   bot.sendMessage(
+//     "-1001859543798",
+//     `${msg.contact.phone_number},\n${msg.text},\n${msg.from.first_name}\n@${msg.from.username}\n${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}   ${date.getHours()}:${date.getMinutes()}`
+//   );
+// })
+
 bot.on("contact", (msg) => {
   // console.log(msg);
   bot.sendMessage(
     "-1001859543798",
-    `${msg.contact.phone_number}\n${msg.from.first_name}\n@${msg.from.username}\n${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}   ${date.getHours()}:${date.getMinutes()}`
+    `${msg.contact.phone_number}\n${msg.from.first_name}\n@${
+      msg.from.username
+    }\n${date.getDate()}.${
+      date.getMonth() + 1
+    }.${date.getFullYear()}   ${date.getHours()}:${date.getMinutes()}`
   );
   bot.sendMessage(msg.chat.id, "You are registred", {
     reply_markup: {
-        keyboard: [["👨🏻‍💻About me", "💼Some projects"]],
-        resize_keyboard: true,
-      },
-  })
-  return;
+      keyboard: [["👨🏻‍💻About me", "💼Some projects"]],
+      resize_keyboard: true,
+    },
+  });
+  // return;
 });
