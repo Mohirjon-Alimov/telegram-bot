@@ -37,6 +37,7 @@ bot.onText(/\/start/, (msg) => {
     },
   });
 });
+
 bot.onText(/\/info/, (msg) => {
   bot.sendMessage(msg.chat.id, "Choose one", {
     reply_markup: {
